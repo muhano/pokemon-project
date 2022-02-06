@@ -2,6 +2,7 @@ import { useParams, useLocation } from "react-router-dom";
 import { GET_POKEMON_DETAILS } from "../queries";
 import { useQuery } from "@apollo/client";
 import { Container } from "react-bootstrap";
+// import { useContext } from "react";
 
 function Details() {
   let params = useParams();
@@ -10,6 +11,8 @@ function Details() {
   });
   const location = useLocation()
   const image = location.state
+  // const value = useContext(ImageContext)
+
 
   
   if (loading) {
@@ -20,6 +23,7 @@ function Details() {
     return <h3>{error}</h3>;
   }
 
+    // console.log(useContext(ImageContext));
 //   console.log(data.pokemon);
 
   return (
