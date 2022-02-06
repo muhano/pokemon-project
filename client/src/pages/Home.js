@@ -1,7 +1,7 @@
 import { Container, Button } from "react-bootstrap";
 import { GET_POKEMONS } from "../queries";
 import { useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 let offsetValue = 0;
 function Home() {
@@ -28,14 +28,14 @@ function Home() {
     return <h3>{error}</h3>;
   }
 
-  console.log(loading, data.pokemons);
+//   console.log(loading, data.pokemons);
 
   return (
     <Container>
       <h1>This is home page</h1>
       {data.pokemons.results.map((pokemon) => (
         <div key={pokemon.id}>
-          <Link to={`/pokemon/${pokemon.name}`}>
+          <Link to={`/pokemon/${pokemon.name}`} state={pokemon.image}>
             <img src={pokemon.image} alt="pokemon"></img>
           </Link>
           <h4>{pokemon.name}</h4>
