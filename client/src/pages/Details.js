@@ -1,15 +1,26 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { GET_POKEMON_DETAILS } from "../queries";
 import { useQuery } from "@apollo/client";
-import { Container, Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import {
+  Container,
+  Card,
+  ListGroup,
+  ListGroupItem,
+  Button,
+} from "react-bootstrap";
 
 function Details() {
   let params = useParams();
   const { loading, error, data } = useQuery(GET_POKEMON_DETAILS, {
     variables: { name: params.name },
   });
-  const location = useLocation();
-  const image = location.state;
+  // const location = useLocation();
+  // const image = location.state;
+
+  const handleCatch = () => {
+    const success = Math.random() < 0.5;
+    console.log(success, '<------');
+  }
 
   if (loading) {
     return <h3>Loading....</h3>;
@@ -34,8 +45,10 @@ function Details() {
         </Card.Body>
         <ListGroup className="list-group-flush">
           <ListGroupItem>
+            <Button onClick={handleCatch} variant="primary">Catch Pokemon</Button>
+          </ListGroupItem>
+          <ListGroupItem>
             Type
-            {/* <Card.Text>Type</Card.Text> */}
             <ul>
               {data.pokemon.types.map((type) => (
                 <li key={type.type.name}>{type.type.name}</li>

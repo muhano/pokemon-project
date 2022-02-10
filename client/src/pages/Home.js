@@ -2,7 +2,7 @@
 import { Container, Button, Col, Row } from "react-bootstrap";
 import { GET_POKEMONS } from "../queries";
 import { useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { PageContext } from "../App";
 import { css } from "@emotion/react";
