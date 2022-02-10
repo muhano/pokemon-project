@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
+import MyPokemon from "./pages/MyPokemon";
 
 export const PageContext = React.createContext(0);
 
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="pokemon/:name" element={<Details />} />
+          <Route path="mypokemon" element={<MyPokemon />} />
         </Routes>
       </PageContext.Provider>
     </div>
