@@ -9,11 +9,11 @@ function App() {
   const [page, setPage] = useState(0);
 
   const incrementPage = () => {
-    setPage(page + 9);
+    setPage(page + 10);
   };
 
   const decrementPage = () => {
-    setPage(page - 9);
+    setPage(page - 10);
   };
 
   return (

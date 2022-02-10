@@ -1,7 +1,7 @@
 import { useParams, useLocation } from "react-router-dom";
 import { GET_POKEMON_DETAILS } from "../queries";
 import { useQuery } from "@apollo/client";
-import { Container } from "react-bootstrap";
+import { Container, Card, ListGroup, ListGroupItem } from "react-bootstrap";
 
 function Details() {
   let params = useParams();
@@ -20,21 +20,39 @@ function Details() {
   }
 
   return (
-    <Container>
-      <h1>This is details page with name {params.name}</h1>
-      <img src={image} alt="pokemon"></img>
-      <p>Type</p>
-      <ul>
-        {data.pokemon.types.map((type) => (
-          <li key={type.type.name}>{type.type.name}</li>
-        ))}
-      </ul>
-      <p>Moves</p>
-      <ul>
-        {data.pokemon.moves.map((move) => (
-          <li key={move.move.name}>{move.move.name}</li>
-        ))}
-      </ul>
+    <Container className="mt-3">
+      {/* <h1>This is details page with name {params.name}</h1> */}
+      <Card className="mx-auto" style={{ maxWidth: "25rem" }}>
+        <Card.Img
+          style={{ width: "100%", height: "15vw", objectFit: "contain" }}
+          variant="top"
+          src={data.pokemon.sprites.front_default}
+        />
+
+        <Card.Body>
+          <Card.Title>{data.pokemon.name}</Card.Title>
+        </Card.Body>
+        <ListGroup className="list-group-flush">
+          <ListGroupItem>
+            Type
+            {/* <Card.Text>Type</Card.Text> */}
+            <ul>
+              {data.pokemon.types.map((type) => (
+                <li key={type.type.name}>{type.type.name}</li>
+              ))}
+            </ul>
+          </ListGroupItem>
+
+          <ListGroupItem>
+            Moves
+            <ul>
+              {data.pokemon.moves.map((move) => (
+                <li key={move.move.name}>{move.move.name}</li>
+              ))}
+            </ul>
+          </ListGroupItem>
+        </ListGroup>
+      </Card>
     </Container>
   );
 }
