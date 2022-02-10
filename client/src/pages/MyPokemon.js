@@ -13,7 +13,7 @@ function MyPokemon() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:3000/pokemons");
+        const response = await axios.get("https://pokemon-project1-server-geri.herokuapp.com/pokemons");
         // console.log(response);
         if (response.status === 200) {
           setMyPokemonList(response.data);
@@ -28,7 +28,7 @@ function MyPokemon() {
 
   const removePokemon = async (id) => {
       try {
-        const response = await axios.delete(`http://localhost:3000/pokemons/${id}`);
+        const response = await axios.delete(`https://pokemon-project1-server-geri.herokuapp.com/pokemons/${id}`);
         if (response.status === 200) {
             const newList = myPokemonList.filter(pokemon => pokemon.id !== id)
             setMyPokemonList(newList)

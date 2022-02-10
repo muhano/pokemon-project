@@ -21,7 +21,7 @@ function Home() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:3000/pokemons");
+        const response = await axios.get("https://pokemon-project1-server-geri.herokuapp.com/pokemons");
         // console.log(response);
         if (response.status === 200) {
           setMyPokemonCount(response.data.length);

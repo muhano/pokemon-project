@@ -38,7 +38,7 @@ function Details() {
     e.preventDefault();
     setSubmitError();
     try {
-      const response = await axios.post("http://localhost:3000/pokemons", {
+      const response = await axios.post("https://pokemon-project1-server-geri.herokuapp.com/pokemons", {
         name: data.pokemon.name,
         nickname: nickname,
         image: data.pokemon.sprites.front_default,
