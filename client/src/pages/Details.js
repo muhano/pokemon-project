@@ -150,7 +150,7 @@ function Details() {
                   color: red;
                 `}
               >
-                Nickname already taken...try another name
+                Nickname already taken...try another name!
               </Card.Text>
             )}
           </ListGroupItem>
