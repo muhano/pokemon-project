@@ -8,13 +8,13 @@ import client from "./config/apolloClient";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 
-// const ImageContext = React.createContext("");
+// export const ImageContext = React.createContext(0);
 
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <BrowserRouter>
-        {/* <ImageContext.Provider value="no image"> */}
+        {/* <ImageContext.Provider value='0'> */}
           <App />
         {/* </ImageContext.Provider> */}
       </BrowserRouter>
