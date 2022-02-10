@@ -147,6 +147,7 @@ function Details() {
               <Card.Text
                 css={css`
                   margin-top: 0.5rem;
+                  color: red;
                 `}
               >
                 Nickname already taken...try another name
