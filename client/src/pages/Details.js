@@ -43,10 +43,11 @@ function Details() {
         nickname: nickname,
         image: data.pokemon.sprites.front_default,
       });
-      console.log(response);
+      // console.log(response);
       if (response.status === 201) {
         setSubmitError();
         setCatchSuccess("added");
+        setNickname("");
       }
     } catch (err) {
       console.log(err);
@@ -64,8 +65,10 @@ function Details() {
 
   return (
     <Container className="mt-3">
-      <Link className="mx-auto" to={`/`}><h4>Go back</h4></Link>
-      
+      <Link className="mx-auto" to={`/`}>
+        <h4>Go back</h4>
+      </Link>
+
       <Card className="mx-auto" style={{ maxWidth: "25rem" }}>
         <Card.Img
           style={{ width: "100%", height: "15vw", objectFit: "contain" }}
@@ -88,7 +91,7 @@ function Details() {
                   color: red;
                 `}
               >
-                Success!!
+                Success!! Give your pokemon a new name!
               </Card.Text>
             )}
             {catchSuccess === "failed" && (
@@ -98,7 +101,7 @@ function Details() {
                   color: red;
                 `}
               >
-                Failed...
+                Failed to catch...try again!
               </Card.Text>
             )}
 
@@ -146,7 +149,7 @@ function Details() {
                   margin-top: 0.5rem;
                 `}
               >
-                Nickname already taken...
+                Nickname already taken...try another name
               </Card.Text>
             )}
           </ListGroupItem>
